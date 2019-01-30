@@ -1,7 +1,7 @@
 # Android_LocationServices_MapMarker
 
 ## Overview
-Build an app which allows users to place tags on a map using either their location or manually entered latitude and longitude.
+Build an app which allows users to place tags on a map and track their current location.
 
 ## Requirements
 This app will consist of a map acitvity with your own buttons that will center the map on the user's current location and place a map marker on the centered location.
