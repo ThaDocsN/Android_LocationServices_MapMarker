@@ -28,9 +28,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final String TAG = MapsActivity.class.getSimpleName();
     public static final int ACCESS_LOCATION_REQUEST_CODE = 1;
 
-    private double currentLat, currentLon;
-    Context context;
-    FusedLocationProviderClient providerClient;
+
+    private Context context;
+    private FusedLocationProviderClient providerClient;
+    private double currentLat;
+    private double currentLon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +58,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             ACCESS_LOCATION_REQUEST_CODE);
 
                 } else {
-                    Log.i(TAG, "Location permission already granted");
                     getLocation(new OnSuccessListener<Location>() {
                         @Override
                         public void onSuccess(Location location) {
@@ -84,16 +85,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
     }
 
-
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
